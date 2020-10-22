@@ -7,13 +7,13 @@ package com.company;
 import java.util.Scanner;
 
 
-public class Main {
+public class Lekcja2 {
     static String getData(Scanner sc, String s, boolean numCheck) {
         String data;
         while (true) {
             System.out.print(s);
             data = sc.nextLine();
-            if (data.isEmpty()) continue;
+            if (data.equals("")) continue;
             if (data.equals("q")) return null;
             if (numCheck) {
                 try {
@@ -52,7 +52,7 @@ public class Main {
         System.out.println("Wiek: " + wiek);
         //4
         System.out.println("#4");
-        for (int i = -1000; i <1002; i+=3) {
+        for (int i = -1000; i < 1002; i += 3) {
             System.out.println(i);
         }
         //5
@@ -63,7 +63,7 @@ public class Main {
         int i2 = sc.nextInt();
         System.out.print("i3: ");
         int i3 = sc.nextInt();
-        System.out.println("Max: " + Math.max(Math.max(i1,i2), i3));
+        System.out.println("Max: " + Math.max(Math.max(i1, i2), i3));
 
         //6
         System.out.println("#6");
@@ -75,23 +75,22 @@ public class Main {
             data = getData(sc, "Second number: ", true);
             if (data == null) break;
             Double d2 = Double.parseDouble(data);
-            loop:
+
             while (true) {
                 String operator = getData(sc, "Operator: ", false);
                 if (operator == null) break;
-                switch (operator) {
-                    case "+":
-                        System.out.println("Wynik: " + (d1 + d2));
-                        break loop;
-                    case "-":
-                        System.out.println("Wynik: " + (d1 - d2));
-                        break loop;
-                    case "*":
-                        System.out.println("Wynik: " + (d1 * d2));
-                        break loop;
-                    case "/":
-                        System.out.println("Wynik: " + (d1 / d2));
-                        break loop;
+                if ("+".equals(operator)) {
+                    System.out.println("Wynik: " + (d1 + d2));
+                    break;
+                } else if ("-".equals(operator)) {
+                    System.out.println("Wynik: " + (d1 - d2));
+                    break;
+                } else if ("*".equals(operator)) {
+                    System.out.println("Wynik: " + (d1 * d2));
+                    break;
+                } else if ("/".equals(operator)) {
+                    System.out.println("Wynik: " + (d1 / d2));
+                    break;
                 }
             }
             System.out.println();
